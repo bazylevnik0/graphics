@@ -1,0 +1,4 @@
+g++ -o HelloWorld HelloWorld.cpp
+./HelloWorld
+flags: -std=c++11, -std=c++14, -std=c++17
+
