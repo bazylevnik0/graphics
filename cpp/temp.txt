@@ -1,4 +1,5 @@
 g++ -o HelloWorld HelloWorld.cpp
+g++ main.cpp add.cpp -o main
 ./HelloWorld
 flags: -std=c++11, -std=c++14, -std=c++17
 
