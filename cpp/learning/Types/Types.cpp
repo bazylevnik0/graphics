@@ -16,12 +16,20 @@ int main()
    char b {'b'};
    
    std::cout << a   << '\n'
-             << b   << std::endl;
+             << b   << '\n'
+             << static_cast<int>(b) << std::endl;
                 c();
    std::cout << d() << std::endl;
    
    long long int e{1234567890}; 
    std::cout << e << std::endl;
-      
+   float f{0.123456789};
+   std::cout << f << std::endl;
+   bool g{true};
+   std::cout << g << std::endl;
+   
+   std::string h{"abc"};
+   std::cout << h << std::endl;
+     
    return 0;   
 }
