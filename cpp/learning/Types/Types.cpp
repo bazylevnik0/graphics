@@ -23,13 +23,30 @@ int main()
    
    long long int e{1234567890}; 
    std::cout << e << std::endl;
-   float f{0.123456789};
+   float f{0.12e2};
    std::cout << f << std::endl;
-   bool g{true};
+   float g{0.123456789};
    std::cout << g << std::endl;
-   
-   std::string h{"abc"};
+   bool h{true};
    std::cout << h << std::endl;
-     
+   
+   std::string i{"abc"};
+   std::cout << i << std::endl;
+   
+   std::cout << "------------\n";  
+   int k{25};
+   std::cout << k << "\n";
+   k = 025;  
+   std::cout << k << "\n";
+   k = 0x25;   
+   std::cout << k << "\n";
+  
+   std::cout << "------------\n";   
+   int l = 0b11001;
+   std::cout << l << "\n";
+   std::cout << std::dec << l << "\n";
+   std::cout << std::oct << l << "\n";
+   std::cout << std::hex << l << std::endl;
+   
    return 0;   
 }
