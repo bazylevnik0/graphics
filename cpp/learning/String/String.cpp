@@ -12,6 +12,8 @@ int main()
    
    std::cout << name.length() << std::endl;
    
+   char string_too[] {"string c"};
+   std::cout << string_too << std::endl;
    
    return 0;
 }
