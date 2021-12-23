@@ -12,5 +12,13 @@ int main()
    std::cout << *ptr_x << std::endl;
    std::cout << &ptr_x << std::endl;
    
+   
+   int a {1};
+   int& b{a};
+   b = 0;
+   std::cout << a << std::endl;
+   a = 1;
+   std::cout << b << std::endl;
+
    return 0;
 };
