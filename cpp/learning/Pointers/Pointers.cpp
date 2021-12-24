@@ -22,3 +22,18 @@ int main()
 
    return 0;
 };
+
+/*
+struct Person
+{
+    int age{};
+    double weight{};
+};
+Person person{};
+
+// Member selection using pointer to struct
+Person* ptr{ &person };
+ptr->age = 5;
+//(*ptr.age) = 5;
+*/
+

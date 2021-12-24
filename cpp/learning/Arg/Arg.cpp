@@ -11,5 +11,9 @@ int main ()
    std::cout << "Enter num: "; 
    std::cin  >> num;
    std::cout << doubleIt( num ) << std::endl; 
+   
+   
+   std::cout << []() { std::string a{"lambda"}; } << std::endl;
+   []() { std::cout << "lambda" << std::endl; };
    return EXIT_SUCCESS;
 }
