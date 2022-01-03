@@ -89,12 +89,12 @@ int main()
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float vertices[] = {
-         0.0f,  0.5f, 0.0f, // 11
-         0.5f,  0.5f, 0.0f, // 21
-         0.0f, -0.5f, 0.0f, // 31
-         0.0f, -0.5f, 0.0f, // 12
-        -0.5f, -0.5f, 0.0f, // 22
-         0.0f,  0.5f, 0.0f  // 32
+         0.0f,  0.1f, 0.0f, // 11
+         0.1f,  0.1f, 0.0f, // 21
+         0.0f, -0.1f, 0.0f, // 31
+         0.0f, -0.1f, 0.0f, // 12
+        -0.1f, -0.1f, 0.0f, // 22
+         0.0f,  0.1f, 0.0f  // 32
     };
 
     unsigned int VBO, VAO;
@@ -113,13 +113,47 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //wireframe mode
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //wireframe mode
     // render loop
     while (!glfwWindowShouldClose(window))
     {
-        // input
+        // input & change
         if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(window, true);
+        if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+        {
+            std::cout << "up" << std::endl;
+            for ( int i{1}; i < 18; i+=3)
+            {
+                vertices[i] += 0.001f;
+            }
+        }
+        if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+        {
+            std::cout << "down" << std::endl;
+            for ( int i{1}; i < 18; i+=3)
+            {
+                vertices[i] -= 0.001f;
+            }
+        }
+        if(glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+        {
+            std::cout << "left" << std::endl;
+            for ( int i{0}; i < 18; i+=3)
+            {
+                vertices[i] -= 0.001f;
+            }
+        }
+        if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+        {
+            std::cout << "right" << std::endl;
+            for ( int i{0}; i < 18; i+=3)
+            {
+                vertices[i] += 0.001f;
+            }
+        }
+
+
 
         //clear color back
         glClearColor(1.0f, 0.2f, 0.7f, 1.0f);
@@ -131,6 +165,11 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 6);
 
         // update
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
